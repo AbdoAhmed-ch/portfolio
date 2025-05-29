@@ -1,4 +1,6 @@
 /* 🌌 Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
 :root {
     --future-blue: #ffa500;
     --neon-pink: #ff00aa;
@@ -15,7 +17,7 @@
 }
 
 body {
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     background: #000;
     color: var(--starlight);
     overflow-x: hidden;
@@ -53,7 +55,7 @@ body {
 }
 
 .logo-text {
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Quicksand ', sans-serif;
     font-size: 1.2rem;
     background: linear-gradient(90deg, var(--future-blue), var(--neon-pink));
     -webkit-background-clip: text;
@@ -133,6 +135,7 @@ body {
     font-size: clamp(1rem, 3vw, 1.5rem);
     color: var(--starlight);
     margin-bottom: 2rem;
+    font-family: 'Pixelify Sans',sans-serif;
 }
 
 @keyframes fadeInUp {
@@ -175,7 +178,7 @@ body {
 .nav-item {
     color: var(--starlight);
     text-decoration: none;
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Quicksand ', sans-serif;
     font-size: clamp(0.8rem, 2vw, 1rem);
     padding: 0.75rem 1.5rem;
     border-radius: 30px;
@@ -323,7 +326,7 @@ section.active {
 
 /* 🔮 Neon Text */
 h1.future-heading {
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: Quicksand, sans-serif;
     font-size: clamp(2rem, 5vw, 3.5rem);
     background: linear-gradient(90deg, var(--future-blue), var(--neon-pink));
     -webkit-background-clip: text;
@@ -389,7 +392,7 @@ h1.future-heading {
 }
 
 .skills-title {
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: clamp(1.2rem, 3vw, 1.8rem);
     color: var(--future-blue);
     margin-bottom: 1.5rem;
@@ -544,7 +547,7 @@ h1.future-heading {
     padding: 1rem;
     border-radius: 8px;
     cursor: pointer;
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-weight: bold;
     transition: all 0.3s ease;
     margin-top: 1rem;
@@ -680,7 +683,7 @@ h1.future-heading {
     justify-content: center;
     padding: 0.75rem 1.5rem;
     border-radius: 30px;
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: 0.9rem;
     font-weight: bold;
     text-decoration: none;
@@ -947,7 +950,7 @@ h1.future-heading {
     align-items: center;
     justify-content: center;
     padding: 12px 28px;
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: 1.1rem;
     font-weight: bold;
     color: var(--void-black); /* Text color on the button */
