@@ -3,7 +3,7 @@
     --future-blue: #ffa500;
     --neon-pink: #ff00aa;
     --cyber-purple: #bb86fc;
-    --void-black: #0a0a0a;
+    --void-black: #ffffff;
     --matrix-green: #00ff41;
     --starlight: rgba(255, 255, 255, 0.9);
 }
@@ -601,7 +601,7 @@ h1.future-heading {
     }
 
     .mobile-nav {
-        display: none;
+        display: none; /* Ensure it's hidden by default on these screens and shown via JS */
     }
 
     .future-container {
@@ -757,7 +757,7 @@ h1.future-heading {
     transform: translateY(1px) !important;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for buttons */
 @media (max-width: 576px) {
     .btn-group {
         flex-direction: column;
@@ -769,3 +769,250 @@ h1.future-heading {
         padding: 0.65rem 1.25rem;
     }
 }
+/* 👾 Ultra-Creative Social Icons - "Activation Sequence" - START */
+.social-icons {
+    text-align: center;
+    margin-top: 3rem;
+    perspective: 1000px; /* Crucial for 3D hover effects */
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px; /* Increased size */
+    height: 55px;
+    margin: 0 15px;
+    color: var(--starlight); /* Initial, slightly muted icon color */
+    background: rgba(var(--future-blue-rgb, 70, 70, 100), 0.1); /* Use RGB for opacity control */
+    border: none; /* We'll create a custom animated border */
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease;
+    position: relative;
+    overflow: visible; /* Allow pseudo-elements to extend slightly if needed for effects */
+    filter: grayscale(50%) brightness(0.8); /* Desaturate and dim slightly in idle state */
+    transform-style: preserve-3d; /* For 3D transformations */
+}
+
+/* Base for border segments and effects */
+.social-icon::before,
+.social-icon::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Segmented/Animated Border - Bottom Layer (Glow) */
+.social-icon::before {
+    box-shadow: 0 0 0 2px rgba(var(--future-blue-rgb, 0, 240, 255), 0.3); /* Faint initial outline */
+    opacity: 0.7;
+    animation: pulse-glow 3s infinite ease-in-out;
+}
+
+/* Segmented/Animated Border - Top Layer (Segments) */
+.social-icon::after {
+    /* Creates 4 border segments that will animate */
+    border: 3px solid transparent;
+    border-top-color: var(--future-blue);
+    border-right-color: var(--future-blue);
+    opacity: 0.5;
+    transform: rotate(45deg) scale(0.95);
+    animation: rotate-segments 10s linear infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px 2px rgba(var(--future-blue-rgb, 0, 240, 255), 0.2), 0 0 0px var(--neon-pink-rgb, 255, 0, 170); transform: scale(1); }
+    50% { box-shadow: 0 0 15px 3px rgba(var(--future-blue-rgb, 0, 240, 255), 0.4), 0 0 10px var(--neon-pink-rgb, 255, 0, 170); transform: scale(1.02); }
+}
+
+@keyframes rotate-segments {
+    0% { transform: rotate(45deg) scale(0.95); opacity: 0.5; }
+    50% { transform: rotate(225deg) scale(1.05); opacity: 1; }
+    100% { transform: rotate(405deg) scale(0.95); opacity: 0.5; }
+}
+
+.social-icon i {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 0 0 3px rgba(255,255,255,0.3);
+}
+
+/* --- HOVER "ACTIVATION SEQUENCE" --- */
+.social-icon:hover {
+    filter: grayscale(0%) brightness(1.2); /* Full color and brightness */
+    transform: translateY(-8px) rotateY(15deg) scale(1.1); /* 3D lift and tilt */
+    background: rgba(var(--future-blue-rgb, 0, 240, 255), 0.2); /* Brighter background fill */
+}
+
+/* Glitch effect for icon on hover - short and sharp */
+.social-icon:hover i {
+    color: var(--void-black); /* Icon color change for contrast */
+    animation: icon-glitch 0.3s ease-out forwards;
+    text-shadow: 0 0 10px var(--future-blue), 0 0 20px var(--starlight); /* Stronger glow on icon */
+}
+
+
+
+.social-icon:hover::before {
+    /* Intensify glow and make border solid */
+    animation: none; /* Stop pulsing, go to fixed state */
+    box-shadow: 0 0 15px 3px var(--future-blue),
+                0 0 25px 5px var(--neon-pink),
+                inset 0 0 10px rgba(var(--starlight-rgb, 255,255,255), 0.5);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.social-icon:hover::after {
+    /* Complete and energize border segments */
+    animation: none; /* Stop segment rotation */
+    border-width: 2px; /* Thinner, sharper border */
+    border-color: var(--neon-pink); /* Change color to contrast */
+    opacity: 1;
+    transform: rotate(0deg) scale(1.1); /* Full circle, slightly larger */
+    box-shadow: 0 0 10px var(--neon-pink), inset 0 0 5px var(--neon-pink);
+}
+
+/* --- Data Shards/Particles (Optional Enhancement) --- */
+/* This is a bit more advanced and might require more pseudo-elements or JS for many particles.
+   Here's a very simple CSS-only concept for a few "shards": */
+.social-icon .shard {
+    position: absolute;
+    width: 3px; height: 3px;
+    background: var(--matrix-green);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.social-icon:hover .shard {
+    opacity: 1;
+    animation: fly-shard 0.5s ease-out forwards;
+}
+
+.social-icon .shard.s1 { top: -5px; left: 50%; transform: translateX(-50%); animation-delay: 0.1s; }
+.social-icon .shard.s2 { top: 50%; left: -5px; transform: translateY(-50%); animation-delay: 0.15s; }
+.social-icon .shard.s3 { bottom: -5px; left: 50%; transform: translateX(-50%); animation-delay: 0.2s; }
+.social-icon .shard.s4 { top: 50%; right: -5px; transform: translateY(-50%); animation-delay: 0.25s; }
+
+@keyframes fly-shard {
+    0% { opacity: 0; transform: scale(0.5) translate(0,0); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.5) translate(calc(var(--dx, 0) * 15px), calc(var(--dy, 0) * 15px)); }
+}
+/* To use shards, add <span class="shard s1"></span> etc. inside each <a> tag,
+   and define --dx, --dy for their direction. This is simplified here.
+   For a simpler approach, you might skip explicit shards or use a more complex box-shadow animation.
+*/
+
+
+/* Define RGB versions of your colors in :root if you haven't already for rgba() usage */
+:root {
+    --future-blue: #ffa500;
+    --future-blue-rgb: 255, 165, 0; /* New */
+    --neon-pink: #ff00aa;
+    --neon-pink-rgb: 255, 0, 170; /* New */
+    --cyber-purple: #bb86fc;
+    --cyber-purple-rgb: 187, 134, 252; /* New */
+    --void-black: #ffffff;
+    --void-black-rgb: 10, 10, 10; /* New */
+    --matrix-green: #00ff41;
+    --matrix-green-rgb: 0, 255, 65; /* New */
+    --starlight: rgba(255, 255, 255, 0.9);
+    --starlight-rgb: 255, 255, 255; /* New */
+}
+
+
+/* Adjust padding for the home card if necessary */
+#home .future-card {
+    padding-bottom: 4.5rem;
+}
+/* 👾 Ultra-Creative Social Icons - "Activation Sequence" - END */
+/* 📄 Creative CV Download Button - START */
+.cv-download-container {
+    margin-top: 2.5rem; /* Space above the button */
+    text-align: center; /* Center the button */
+}
+
+.creative-cv-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--void-black); /* Text color on the button */
+    background: linear-gradient(135deg, var(--future-blue), var(--neon-pink));
+    border: none;
+    border-radius: 5px; /* Slightly sharp edges */
+    text-decoration: none;
+    position: relative;
+    overflow: hidden; /* For pseudo-elements */
+    z-index: 1;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%); /* Angled corner */
+}
+
+.creative-cv-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: -1;
+}
+
+.creative-cv-btn:hover::before {
+    left: 100%; /* Shine effect */
+}
+
+.creative-cv-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(var(--future-blue-rgb, 255,165,0), 0.4),
+                0 5px 15px rgba(var(--neon-pink-rgb, 255,0,170), 0.3);
+    color: var(--void-black);
+}
+
+.creative-cv-btn:active {
+    transform: translateY(1px) scale(1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.btn-icon-cv {
+    margin-right: 10px;
+    font-size: 1.3em;
+    transition: transform 0.3s ease;
+}
+
+.btn-text-cv {
+    letter-spacing: 1px;
+}
+
+.creative-cv-btn:hover .btn-icon-cv {
+    transform: scale(1.1) rotate(-5deg); /* Icon slight animation */
+}
+
+/* Make sure you have RGB versions of your colors in :root for rgba() if not already defined */
+/* Example:
+:root {
+    --future-blue: #ffa500;
+    --future-blue-rgb: 255, 165, 0;
+    --neon-pink: #ff00aa;
+    --neon-pink-rgb: 255, 0, 170;
+    // ... other colors
+}
+*/
+/* 📄 Creative CV Download Button - END */
