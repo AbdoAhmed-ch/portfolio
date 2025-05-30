@@ -46,6 +46,8 @@ body {
     gap: 0.8rem;
     text-decoration: none;
     z-index: 1001;
+    font-family: 'Pixelify Sans',sans-serif;
+
 }
 
 .logo-img {
