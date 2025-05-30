@@ -57,7 +57,7 @@ body {
 }
 
 .logo-text {
-    font-family: 'Quicksand ', sans-serif;
+    font-family: 'Pixelify Sans', sans-serif;
     font-size: 1.2rem;
     background: linear-gradient(90deg, var(--future-blue), var(--neon-pink));
     -webkit-background-clip: text;
