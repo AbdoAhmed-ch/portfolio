@@ -789,7 +789,7 @@ h1.future-heading {
     justify-content: center;
     width: 55px; /* Increased size */
     height: 55px;
-    margin: 0 15px;
+    margin: 10px 15px;
     color: var(--starlight); /* Initial, slightly muted icon color */
     background: rgba(var(--future-blue-rgb, 70, 70, 100), 0.1); /* Use RGB for opacity control */
     border: none; /* We'll create a custom animated border */
